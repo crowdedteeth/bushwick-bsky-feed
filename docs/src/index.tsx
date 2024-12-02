@@ -18,19 +18,21 @@ export function App() {
           <img src={bskyLogo} height="48" />
         </a>
       </div>
-      <div id="feed-info-container">
-        <div id="feed-icon-container">
-          <FeedIcon />
+      <a target="_blank" href={FEED_LINK}>
+        <div id="feed-info-container">
+          <div id="feed-icon-container">
+            <FeedIcon />
+          </div>
+          <div class="feed-description">
+            <h1>
+              🌆⋆.˚𖤓˚⟡&nbsp;&nbsp;&nbsp;Bushwick,
+              Brooklyn.&nbsp;&nbsp;&nbsp;⟡˚⏾˚.⋆🌃
+            </h1>
+            <p>Curated feed for Bushwick news, events, culture & more.</p>
+            <p>#bushwickfeed</p>
+          </div>
         </div>
-        <div class="feed-description">
-          <h1>
-            🌆⋆.˚𖤓˚⟡&nbsp;&nbsp;&nbsp;Bushwick,
-            Brooklyn.&nbsp;&nbsp;&nbsp;⟡˚⏾˚.⋆🌃
-          </h1>
-          <p>Curated feed for Bushwick news, events, culture & more.</p>
-          <p>#bushwickfeed</p>
-        </div>
-      </div>
+      </a>
       <br />
       <br />
       <Philosophy />
