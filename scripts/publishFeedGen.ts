@@ -11,11 +11,11 @@ const run = async () => {
     throw new Error('Please provide a hostname in the .env file')
   }
 
-  const handle = process.env.BSKY_APP_HANDLE
-  const password = process.env.BSKY_APP_PASSWORD
+  const handle = process.env.BSKY_APP_HANDLE!
+  const password = process.env.BSKY_APP_PASSWORD!
   const recordName = "bushwick";
   const displayName = "Bushwick";
-  const description = "🌆⋆.˚𖤓˚⟡   Bushwick, Brooklyn.   ⟡˚⏾˚.⋆🌃\n\nCurated feed for Bushwick news, events, culture & more.\n\n#bushwickfeed";
+  const description = "🌆⋆.˚𖤓˚⟡   Bushwick, Brooklyn.   ⟡˚⏾˚.⋆🌃\n\nCurated feed for Bushwick news, events, culture & more.\n\n#bushwickfeed\n\nMore info @ bushwick.crowdedteeth.net";
   const avatar: string = "";
   const service = "https://bsky.social";
 
