@@ -65,7 +65,7 @@ function Philosophy() {
       <h1>Philosophy</h1>
       <p>
         This feed is curated with an eye toward community building and
-        engagement. For example, posts which promote local events,
+        real-world engagement. For example, posts which promote local events,
         community-owned businesses, or Bushwick-related news are of principal
         interest. Secondarily, we aim to cultivate conversation among members of
         our community by highlighting "hot"/"trending" posts pertaining to any
