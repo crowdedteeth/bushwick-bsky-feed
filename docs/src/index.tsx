@@ -19,8 +19,8 @@ export function App() {
         </a>
       </div>
       <a target="_blank" href={FEED_LINK}>
-        <div id="feed-info-container">
-          <div id="feed-icon-container">
+        <div class="feed-info-container">
+          <div class="feed-icon-container">
             <FeedIcon />
           </div>
           <div class="feed-description">
@@ -189,17 +189,3 @@ function UserCard(props) {
     </div>
   );
 }
-
-function resizeFeedIconContainer() {
-  const feedInfoContainer = document.getElementById('feed-info-container');
-  const feedIconContainer = document.getElementById('feed-icon-container');
-
-  const size = feedInfoContainer.offsetHeight - 64;
-  feedIconContainer.style.width = `${size}px`;
-  feedIconContainer.style.height = `${size}px`;
-}
-
-document.addEventListener(
-  'DOMContentLoaded',
-  () => void resizeFeedIconContainer(),
-);
