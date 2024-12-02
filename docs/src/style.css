@@ -1,82 +1,192 @@
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
-
-	color: #222;
-	background-color: #ffffff;
-
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
-}
 
-body {
-	margin: 0;
-	display: flex;
-	align-items: center;
-	min-height: 100vh;
+	background: #161e27;
+	color: white; 
+	font-family: InterVariable, system-ui, -apple-system, BlinkMacSystemFont, 
+			'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+	padding: 48px 64px;
+	padding-block-end: 128px;
 }
 
 #app {
-	max-width: 1280px;
+	max-width: 1000px;
 	margin: 0 auto;
-	text-align: center;
 }
 
-img {
-	margin-bottom: 1.5rem;
+a {
+  color: #208bfe;
 }
 
-img:hover {
-	filter: drop-shadow(0 0 2em #673ab8aa);
+code a {
+	color: unset;
 }
 
-section {
-	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1.5rem;
+code {
+	background: #208bfe;
+	color: white;
+	padding: 2px 4px;
+	border-radius: 4px;
 }
 
-.resource {
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	text-align: left;
-	text-decoration: none;
-	color: #222;
-	background-color: #f1f1f1;
-	border: 1px solid transparent;
+h2 > code {
+	font-size: 22px;
+	border-radius: 8px;
+	padding: 3px 6px;
 }
 
-.resource:hover {
-	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
+.bsky-logo-container {
+	display: flex;
+	justify-content: center;
 }
 
-@media (max-width: 639px) {
-	#app {
-		margin: 2rem;
-	}
-	section {
-		margin-top: 5rem;
-		grid-template-columns: 1fr;
-		row-gap: 1rem;
-	}
+#feed-info-container {
+	border: 1px solid #2e4052; 
+	border-radius: 16px;
+	padding: 32px; 
+	margin-block-start: 32px; 
+	display: flex; 
+	overflow-x: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		color: #ccc;
-		background-color: #1a1a1a;
-	}
-	.resource {
-		color: #ccc;
-		background-color: #161616;
-	}
-	.resource:hover {
-		border: 1px solid #bbb;
-	}
+#feed-icon-container {
+	width: 0; 
+	height: 0; 
+	margin-inline-end: 24px; 
+	flex-shrink: 0;
 }
+
+.feed-description > h1 {
+	white-space: nowrap;
+}
+
+.feed-description > *:first-child {
+	margin-block-start: 0;
+}
+
+.feed-description > *:last-child {
+	margin-block-end: 0;
+}
+
+#firehose {
+	width: 96px;
+	height: 96px;
+	background: #0070FF;
+	border-radius: 12px;
+	padding: 16px;
+	box-sizing: border-box;
+	transform: rotateY(180deg) translateY(4px);
+}
+
+.feed-container {
+	width: 96px;
+	height: 96px;
+	margin-inline-start: auto;
+}
+
+.algo-viz-container {
+	width: 100%;
+}
+
+.algo-linefeed {
+	height: 112px;
+	width: calc(100% - 96px);
+	margin-inline: 48px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	padding: 12px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.algo-linefeed:before {
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	border-inline-start: 2px solid #2e4052;
+	border-block-end: 2px solid #2e4052;
+	border-end-start-radius: 48px;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.algo-linefeed:after {
+	content: "";
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	border-inline-end: 2px solid #2e4052;
+	border-block-start: 2px solid #2e4052;
+	border-start-end-radius: 48px;
+	top: 100%;
+	right: 0;
+	z-index: -1;
+}
+
+.user-card-list {
+	display: flex;
+	position: relative;
+}
+
+.user-card-list > .user-card:not(:last-child) {
+	position: absolute;
+	z-index: -1;
+}
+
+.user-card {
+	border: 1px solid #2e4052;
+	border-radius: 12px;
+	width: 200px;
+	background: #161e27;
+	display: flex;
+	align-items: center;
+	padding: 16px;
+}
+
+.user-card > .user-card-icon {
+	width: 48px;
+	height: 48px;
+	border-radius: 24px;
+  flex-shrink: 0;
+	margin-inline-end: 8px;
+}
+
+.user-card-skeleton > .user-card-icon {
+	background: #1e2936;
+}
+
+.user-card > .user-card-info {
+	white-space: nowrap;
+	overflow: hidden;
+	width: 100%;
+	mask-image: linear-gradient(90deg, black, black 80%, transparent);
+}
+
+.user-card > .user-card-info > span {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.user-card > .user-card-info > span:not(:last-child) {
+	margin-block-end: 6px;
+}
+
+.user-card-skeleton > .user-card-info > span {
+	background: #1e2936;
+	border-radius: 4px;
+	padding: 2px 4px;
+	display: block;
+	height: 12px;
+}
+
+.user-card-skeleton > .user-card-info > span:first-child {
+	width: 50%;
+ }
