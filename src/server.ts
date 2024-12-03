@@ -3,8 +3,8 @@ import events from 'events';
 import express from 'express';
 import { DidResolver, MemoryCache } from '@atproto/identity';
 import { createServer } from './lexicon';
-import feedGeneration from './methods/feed-generation';
-import describeGenerator from './methods/describe-generator';
+import { getFeedSkeleton } from './methods/get_feed_skeleton';
+import { describeFeedGenerator } from './methods/describe_feed_generator';
 import { createDb, Database, migrateToLatest } from './db';
 import { FirehoseSubscription } from './subscription';
 import { AppContext, Config } from './config';
@@ -48,8 +48,8 @@ export class FeedGenerator {
       didResolver,
       cfg,
     };
-    feedGeneration(server, ctx);
-    describeGenerator(server, ctx);
+    getFeedSkeleton(server, ctx);
+    describeFeedGenerator(server, ctx);
     app.use(server.xrpc.router);
     app.use(wellKnown(ctx));
 
