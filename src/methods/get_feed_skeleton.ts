@@ -5,7 +5,7 @@ import algos from '../algos';
 import { AtUri } from '@atproto/syntax';
 
 export function getFeedSkeleton(server: Server, ctx: AppContext) {
-  server.app.bsky.feed.getFeedSkeleton(async ({ params, req }) => {
+  server.app.bsky.feed.getFeedSkeleton(async ({ params }) => {
     const feedUri = new AtUri(params.feed);
     const algo = algos[feedUri.rkey];
     if (
