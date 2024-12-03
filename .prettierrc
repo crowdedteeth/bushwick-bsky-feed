@@ -1,8 +1,16 @@
 {
-  "trailingComma": "all",
+  "printWidth": 100,
   "tabWidth": 2,
-  "semi": false,
+  "useTabs": false,
+  "semi": true,
   "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "singleAttributePerLine": true,
+  "jsxSingleQuote": false,
+  "htmlWhitespaceSensitivity": "strict",
   "overrides": [
     {
       "files": "*.hbs",

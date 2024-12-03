@@ -1,7 +1,7 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import { LexiconDoc, Lexicons } from '@atproto/lexicon'
+import { LexiconDoc, Lexicons } from '@atproto/lexicon';
 
 export const schemaDict = {
   ComAtprotoAdminDefs: {
@@ -35,10 +35,7 @@ export const schemaDict = {
           },
           subject: {
             type: 'union',
-            refs: [
-              'lex:com.atproto.admin.defs#repoRef',
-              'lex:com.atproto.repo.strongRef',
-            ],
+            refs: ['lex:com.atproto.admin.defs#repoRef', 'lex:com.atproto.repo.strongRef'],
           },
           subjectBlobCids: {
             type: 'array',
@@ -224,14 +221,7 @@ export const schemaDict = {
       },
       reportView: {
         type: 'object',
-        required: [
-          'id',
-          'reasonType',
-          'subject',
-          'reportedBy',
-          'createdAt',
-          'resolvedByActionIds',
-        ],
+        required: ['id', 'reasonType', 'subject', 'reportedBy', 'createdAt', 'resolvedByActionIds'],
         properties: {
           id: {
             type: 'integer',
@@ -248,10 +238,7 @@ export const schemaDict = {
           },
           subject: {
             type: 'union',
-            refs: [
-              'lex:com.atproto.admin.defs#repoRef',
-              'lex:com.atproto.repo.strongRef',
-            ],
+            refs: ['lex:com.atproto.admin.defs#repoRef', 'lex:com.atproto.repo.strongRef'],
           },
           reportedBy: {
             type: 'string',
@@ -271,14 +258,7 @@ export const schemaDict = {
       },
       reportViewDetail: {
         type: 'object',
-        required: [
-          'id',
-          'reasonType',
-          'subject',
-          'reportedBy',
-          'createdAt',
-          'resolvedByActions',
-        ],
+        required: ['id', 'reasonType', 'subject', 'reportedBy', 'createdAt', 'resolvedByActions'],
         properties: {
           id: {
             type: 'integer',
@@ -318,13 +298,7 @@ export const schemaDict = {
       },
       repoView: {
         type: 'object',
-        required: [
-          'did',
-          'handle',
-          'relatedRecords',
-          'indexedAt',
-          'moderation',
-        ],
+        required: ['did', 'handle', 'relatedRecords', 'indexedAt', 'moderation'],
         properties: {
           did: {
             type: 'string',
@@ -365,13 +339,7 @@ export const schemaDict = {
       },
       repoViewDetail: {
         type: 'object',
-        required: [
-          'did',
-          'handle',
-          'relatedRecords',
-          'indexedAt',
-          'moderation',
-        ],
+        required: ['did', 'handle', 'relatedRecords', 'indexedAt', 'moderation'],
         properties: {
           did: {
             type: 'string',
@@ -446,15 +414,7 @@ export const schemaDict = {
       },
       recordView: {
         type: 'object',
-        required: [
-          'uri',
-          'cid',
-          'value',
-          'blobCids',
-          'indexedAt',
-          'moderation',
-          'repo',
-        ],
+        required: ['uri', 'cid', 'value', 'blobCids', 'indexedAt', 'moderation', 'repo'],
         properties: {
           uri: {
             type: 'string',
@@ -490,15 +450,7 @@ export const schemaDict = {
       },
       recordViewDetail: {
         type: 'object',
-        required: [
-          'uri',
-          'cid',
-          'value',
-          'blobs',
-          'indexedAt',
-          'moderation',
-          'repo',
-        ],
+        required: ['uri', 'cid', 'value', 'blobs', 'indexedAt', 'moderation', 'repo'],
         properties: {
           uri: {
             type: 'string',
@@ -662,8 +614,7 @@ export const schemaDict = {
               },
               note: {
                 type: 'string',
-                description:
-                  'Additionally add a note describing why the invites were disabled',
+                description: 'Additionally add a note describing why the invites were disabled',
               },
             },
           },
@@ -677,8 +628,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description:
-          'Disable some set of codes and/or all codes associated with a set of users',
+        description: 'Disable some set of codes and/or all codes associated with a set of users',
         input: {
           encoding: 'application/json',
           schema: {
@@ -721,8 +671,7 @@ export const schemaDict = {
               },
               note: {
                 type: 'string',
-                description:
-                  'Additionally add a note describing why the invites were enabled',
+                description: 'Additionally add a note describing why the invites were enabled',
               },
             },
           },
@@ -898,8 +847,7 @@ export const schemaDict = {
             actionedBy: {
               type: 'string',
               format: 'did',
-              description:
-                'Get all reports that were actioned by a specific moderator',
+              description: 'Get all reports that were actioned by a specific moderator',
             },
             reporters: {
               type: 'array',
@@ -1218,10 +1166,7 @@ export const schemaDict = {
               },
               subject: {
                 type: 'union',
-                refs: [
-                  'lex:com.atproto.admin.defs#repoRef',
-                  'lex:com.atproto.repo.strongRef',
-                ],
+                refs: ['lex:com.atproto.admin.defs#repoRef', 'lex:com.atproto.repo.strongRef'],
               },
               subjectBlobCids: {
                 type: 'array',
@@ -1412,13 +1357,11 @@ export const schemaDict = {
           val: {
             type: 'string',
             maxLength: 128,
-            description:
-              'the short string name of the value or type of this label',
+            description: 'the short string name of the value or type of this label',
           },
           neg: {
             type: 'boolean',
-            description:
-              'if true, this is a negation label, overwriting a previous label',
+            description: 'if true, this is a negation label, overwriting a previous label',
           },
           cts: {
             type: 'string',
@@ -1452,8 +1395,7 @@ export const schemaDict = {
           val: {
             type: 'string',
             maxLength: 128,
-            description:
-              'the short string name of the value or type of this label',
+            description: 'the short string name of the value or type of this label',
           },
         },
       },
@@ -1603,10 +1545,7 @@ export const schemaDict = {
               },
               subject: {
                 type: 'union',
-                refs: [
-                  'lex:com.atproto.admin.defs#repoRef',
-                  'lex:com.atproto.repo.strongRef',
-                ],
+                refs: ['lex:com.atproto.admin.defs#repoRef', 'lex:com.atproto.repo.strongRef'],
               },
             },
           },
@@ -1615,13 +1554,7 @@ export const schemaDict = {
           encoding: 'application/json',
           schema: {
             type: 'object',
-            required: [
-              'id',
-              'reasonType',
-              'subject',
-              'reportedBy',
-              'createdAt',
-            ],
+            required: ['id', 'reasonType', 'subject', 'reportedBy', 'createdAt'],
             properties: {
               id: {
                 type: 'integer',
@@ -1635,10 +1568,7 @@ export const schemaDict = {
               },
               subject: {
                 type: 'union',
-                refs: [
-                  'lex:com.atproto.admin.defs#repoRef',
-                  'lex:com.atproto.repo.strongRef',
-                ],
+                refs: ['lex:com.atproto.admin.defs#repoRef', 'lex:com.atproto.repo.strongRef'],
               },
               reportedBy: {
                 type: 'string',
@@ -1687,8 +1617,7 @@ export const schemaDict = {
       },
       reasonRude: {
         type: 'token',
-        description:
-          'Rude, harassing, explicit, or otherwise unwelcoming behavior',
+        description: 'Rude, harassing, explicit, or otherwise unwelcoming behavior',
       },
       reasonOther: {
         type: 'token',
@@ -1702,8 +1631,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description:
-          'Apply a batch transaction of creates, updates, and deletes.',
+        description: 'Apply a batch transaction of creates, updates, and deletes.',
         input: {
           encoding: 'application/json',
           schema: {
@@ -1836,8 +1764,7 @@ export const schemaDict = {
               swapCommit: {
                 type: 'string',
                 format: 'cid',
-                description:
-                  'Compare and swap with the previous commit by cid.',
+                description: 'Compare and swap with the previous commit by cid.',
               },
             },
           },
@@ -1897,14 +1824,12 @@ export const schemaDict = {
               swapRecord: {
                 type: 'string',
                 format: 'cid',
-                description:
-                  'Compare and swap with the previous record by cid.',
+                description: 'Compare and swap with the previous record by cid.',
               },
               swapCommit: {
                 type: 'string',
                 format: 'cid',
-                description:
-                  'Compare and swap with the previous commit by cid.',
+                description: 'Compare and swap with the previous commit by cid.',
               },
             },
           },
@@ -1923,8 +1848,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          'Get information about the repo, including the list of collections.',
+        description: 'Get information about the repo, including the list of collections.',
         parameters: {
           type: 'params',
           required: ['repo'],
@@ -1940,13 +1864,7 @@ export const schemaDict = {
           encoding: 'application/json',
           schema: {
             type: 'object',
-            required: [
-              'handle',
-              'did',
-              'didDoc',
-              'collections',
-              'handleIsCorrect',
-            ],
+            required: ['handle', 'did', 'didDoc', 'collections', 'handleIsCorrect'],
             properties: {
               handle: {
                 type: 'string',
@@ -2064,13 +1982,11 @@ export const schemaDict = {
             },
             rkeyStart: {
               type: 'string',
-              description:
-                'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)',
+              description: 'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)',
             },
             rkeyEnd: {
               type: 'string',
-              description:
-                'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)',
+              description: 'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)',
             },
             reverse: {
               type: 'boolean',
@@ -2158,14 +2074,12 @@ export const schemaDict = {
               swapRecord: {
                 type: 'string',
                 format: 'cid',
-                description:
-                  'Compare and swap with the previous record by cid.',
+                description: 'Compare and swap with the previous record by cid.',
               },
               swapCommit: {
                 type: 'string',
                 format: 'cid',
-                description:
-                  'Compare and swap with the previous commit by cid.',
+                description: 'Compare and swap with the previous commit by cid.',
               },
             },
           },
@@ -2222,8 +2136,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description:
-          'Upload a new blob to be added to repo in a later request.',
+        description: 'Upload a new blob to be added to repo in a later request.',
         input: {
           encoding: '*/*',
         },
@@ -2543,15 +2456,7 @@ export const schemaDict = {
     defs: {
       inviteCode: {
         type: 'object',
-        required: [
-          'code',
-          'available',
-          'disabled',
-          'forAccount',
-          'createdBy',
-          'createdAt',
-          'uses',
-        ],
+        required: ['code', 'available', 'disabled', 'forAccount', 'createdBy', 'createdAt', 'uses'],
         properties: {
           code: {
             type: 'string',
@@ -2650,8 +2555,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          "Get a document describing the service's accounts configuration.",
+        description: "Get a document describing the service's accounts configuration.",
         output: {
           encoding: 'application/json',
           schema: {
@@ -3021,8 +2925,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          'DEPRECATED - please use com.atproto.sync.getLatestCommit instead',
+        description: 'DEPRECATED - please use com.atproto.sync.getLatestCommit instead',
         parameters: {
           type: 'params',
           required: ['did'],
@@ -3103,8 +3006,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          'Gets blocks needed for existence or non-existence of record.',
+        description: 'Gets blocks needed for existence or non-existence of record.',
         parameters: {
           type: 'params',
           required: ['did', 'collection', 'rkey'],
@@ -3140,8 +3042,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          "Gets the did's repo, optionally catching up from a specific revision.",
+        description: "Gets the did's repo, optionally catching up from a specific revision.",
         parameters: {
           type: 'params',
           required: ['did'],
@@ -3289,8 +3190,7 @@ export const schemaDict = {
             properties: {
               hostname: {
                 type: 'string',
-                description:
-                  'Hostname of the service that is notifying of update.',
+                description: 'Hostname of the service that is notifying of update.',
               },
             },
           },
@@ -3313,8 +3213,7 @@ export const schemaDict = {
             properties: {
               hostname: {
                 type: 'string',
-                description:
-                  'Hostname of the service that is requesting to be crawled.',
+                description: 'Hostname of the service that is requesting to be crawled.',
               },
             },
           },
@@ -3755,8 +3654,7 @@ export const schemaDict = {
         properties: {
           feed: {
             type: 'string',
-            description:
-              'The URI of the feed, or an identifier which describes the feed.',
+            description: 'The URI of the feed, or an identifier which describes the feed.',
           },
           hideReplies: {
             type: 'boolean',
@@ -3764,13 +3662,11 @@ export const schemaDict = {
           },
           hideRepliesByUnfollowed: {
             type: 'boolean',
-            description:
-              'Hide replies in the feed if they are not by followed users.',
+            description: 'Hide replies in the feed if they are not by followed users.',
           },
           hideRepliesByLikeCount: {
             type: 'integer',
-            description:
-              'Hide replies in the feed if they do not have this number of likes.',
+            description: 'Hide replies in the feed if they do not have this number of likes.',
           },
           hideReposts: {
             type: 'boolean',
@@ -3896,8 +3792,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          'Get a list of actors suggested for following. Used in discovery UIs.',
+        description: 'Get a list of actors suggested for following. Used in discovery UIs.',
         parameters: {
           type: 'params',
           properties: {
@@ -4252,8 +4147,7 @@ export const schemaDict = {
   AppBskyEmbedRecord: {
     lexicon: 1,
     id: 'app.bsky.embed.record',
-    description:
-      'A representation of a record embedded in another form of content',
+    description: 'A representation of a record embedded in another form of content',
     defs: {
       main: {
         type: 'object',
@@ -4389,10 +4283,7 @@ export const schemaDict = {
           },
           media: {
             type: 'union',
-            refs: [
-              'lex:app.bsky.embed.images#view',
-              'lex:app.bsky.embed.external#view',
-            ],
+            refs: ['lex:app.bsky.embed.images#view', 'lex:app.bsky.embed.external#view'],
           },
         },
       },
@@ -4961,11 +4852,7 @@ export const schemaDict = {
             },
             filter: {
               type: 'string',
-              knownValues: [
-                'posts_with_replies',
-                'posts_no_replies',
-                'posts_with_media',
-              ],
+              knownValues: ['posts_with_replies', 'posts_no_replies', 'posts_with_media'],
               default: 'posts_with_replies',
             },
           },
@@ -5006,8 +4893,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          "Compose and hydrate a feed from a user's selected feed generator",
+        description: "Compose and hydrate a feed from a user's selected feed generator",
         parameters: {
           type: 'params',
           required: ['feed'],
@@ -5973,15 +5859,11 @@ export const schemaDict = {
       },
       listPurpose: {
         type: 'string',
-        knownValues: [
-          'app.bsky.graph.defs#modlist',
-          'app.bsky.graph.defs#curatelist',
-        ],
+        knownValues: ['app.bsky.graph.defs#modlist', 'app.bsky.graph.defs#curatelist'],
       },
       modlist: {
         type: 'token',
-        description:
-          'A list of actors to apply an aggregate moderation action (mute/block) on',
+        description: 'A list of actors to apply an aggregate moderation action (mute/block) on',
       },
       curatelist: {
         type: 'token',
@@ -6712,15 +6594,7 @@ export const schemaDict = {
       },
       notification: {
         type: 'object',
-        required: [
-          'uri',
-          'cid',
-          'author',
-          'reason',
-          'record',
-          'isRead',
-          'indexedAt',
-        ],
+        required: ['uri', 'cid', 'author', 'reason', 'record', 'isRead', 'indexedAt'],
         properties: {
           uri: {
             type: 'string',
@@ -6738,14 +6612,7 @@ export const schemaDict = {
             type: 'string',
             description:
               "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.",
-            knownValues: [
-              'like',
-              'repost',
-              'follow',
-              'mention',
-              'reply',
-              'quote',
-            ],
+            knownValues: ['like', 'repost', 'follow', 'mention', 'reply', 'quote'],
           },
           reasonSubject: {
             type: 'string',
@@ -6937,8 +6804,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description:
-          'DEPRECATED: will be removed soon, please find a feed generator alternative',
+        description: 'DEPRECATED: will be removed soon, please find a feed generator alternative',
         parameters: {
           type: 'params',
           properties: {
@@ -7199,13 +7065,12 @@ export const schemaDict = {
       },
     },
   },
-}
-export const schemas: LexiconDoc[] = Object.values(schemaDict) as LexiconDoc[]
-export const lexicons: Lexicons = new Lexicons(schemas)
+};
+export const schemas: LexiconDoc[] = Object.values(schemaDict) as LexiconDoc[];
+export const lexicons: Lexicons = new Lexicons(schemas);
 export const ids = {
   ComAtprotoAdminDefs: 'com.atproto.admin.defs',
-  ComAtprotoAdminDisableAccountInvites:
-    'com.atproto.admin.disableAccountInvites',
+  ComAtprotoAdminDisableAccountInvites: 'com.atproto.admin.disableAccountInvites',
   ComAtprotoAdminDisableInviteCodes: 'com.atproto.admin.disableInviteCodes',
   ComAtprotoAdminEnableAccountInvites: 'com.atproto.admin.enableAccountInvites',
   ComAtprotoAdminGetInviteCodes: 'com.atproto.admin.getInviteCodes',
@@ -7215,10 +7080,8 @@ export const ids = {
   ComAtprotoAdminGetModerationReports: 'com.atproto.admin.getModerationReports',
   ComAtprotoAdminGetRecord: 'com.atproto.admin.getRecord',
   ComAtprotoAdminGetRepo: 'com.atproto.admin.getRepo',
-  ComAtprotoAdminResolveModerationReports:
-    'com.atproto.admin.resolveModerationReports',
-  ComAtprotoAdminReverseModerationAction:
-    'com.atproto.admin.reverseModerationAction',
+  ComAtprotoAdminResolveModerationReports: 'com.atproto.admin.resolveModerationReports',
+  ComAtprotoAdminReverseModerationAction: 'com.atproto.admin.reverseModerationAction',
   ComAtprotoAdminSearchRepos: 'com.atproto.admin.searchRepos',
   ComAtprotoAdminSendEmail: 'com.atproto.admin.sendEmail',
   ComAtprotoAdminTakeModerationAction: 'com.atproto.admin.takeModerationAction',
@@ -7249,15 +7112,12 @@ export const ids = {
   ComAtprotoServerDeleteAccount: 'com.atproto.server.deleteAccount',
   ComAtprotoServerDeleteSession: 'com.atproto.server.deleteSession',
   ComAtprotoServerDescribeServer: 'com.atproto.server.describeServer',
-  ComAtprotoServerGetAccountInviteCodes:
-    'com.atproto.server.getAccountInviteCodes',
+  ComAtprotoServerGetAccountInviteCodes: 'com.atproto.server.getAccountInviteCodes',
   ComAtprotoServerGetSession: 'com.atproto.server.getSession',
   ComAtprotoServerListAppPasswords: 'com.atproto.server.listAppPasswords',
   ComAtprotoServerRefreshSession: 'com.atproto.server.refreshSession',
-  ComAtprotoServerRequestAccountDelete:
-    'com.atproto.server.requestAccountDelete',
-  ComAtprotoServerRequestPasswordReset:
-    'com.atproto.server.requestPasswordReset',
+  ComAtprotoServerRequestAccountDelete: 'com.atproto.server.requestAccountDelete',
+  ComAtprotoServerRequestPasswordReset: 'com.atproto.server.requestPasswordReset',
   ComAtprotoServerResetPassword: 'com.atproto.server.resetPassword',
   ComAtprotoServerRevokeAppPassword: 'com.atproto.server.revokeAppPassword',
   ComAtprotoSyncGetBlob: 'com.atproto.sync.getBlob',
@@ -7318,8 +7178,7 @@ export const ids = {
   AppBskyGraphGetListMutes: 'app.bsky.graph.getListMutes',
   AppBskyGraphGetLists: 'app.bsky.graph.getLists',
   AppBskyGraphGetMutes: 'app.bsky.graph.getMutes',
-  AppBskyGraphGetSuggestedFollowsByActor:
-    'app.bsky.graph.getSuggestedFollowsByActor',
+  AppBskyGraphGetSuggestedFollowsByActor: 'app.bsky.graph.getSuggestedFollowsByActor',
   AppBskyGraphList: 'app.bsky.graph.list',
   AppBskyGraphListblock: 'app.bsky.graph.listblock',
   AppBskyGraphListitem: 'app.bsky.graph.listitem',
@@ -7328,17 +7187,14 @@ export const ids = {
   AppBskyGraphUnmuteActor: 'app.bsky.graph.unmuteActor',
   AppBskyGraphUnmuteActorList: 'app.bsky.graph.unmuteActorList',
   AppBskyNotificationGetUnreadCount: 'app.bsky.notification.getUnreadCount',
-  AppBskyNotificationListNotifications:
-    'app.bsky.notification.listNotifications',
+  AppBskyNotificationListNotifications: 'app.bsky.notification.listNotifications',
   AppBskyNotificationRegisterPush: 'app.bsky.notification.registerPush',
   AppBskyNotificationUpdateSeen: 'app.bsky.notification.updateSeen',
   AppBskyRichtextFacet: 'app.bsky.richtext.facet',
   AppBskyUnspeccedDefs: 'app.bsky.unspecced.defs',
   AppBskyUnspeccedGetPopular: 'app.bsky.unspecced.getPopular',
-  AppBskyUnspeccedGetPopularFeedGenerators:
-    'app.bsky.unspecced.getPopularFeedGenerators',
+  AppBskyUnspeccedGetPopularFeedGenerators: 'app.bsky.unspecced.getPopularFeedGenerators',
   AppBskyUnspeccedGetTimelineSkeleton: 'app.bsky.unspecced.getTimelineSkeleton',
-  AppBskyUnspeccedSearchActorsSkeleton:
-    'app.bsky.unspecced.searchActorsSkeleton',
+  AppBskyUnspeccedSearchActorsSkeleton: 'app.bsky.unspecced.searchActorsSkeleton',
   AppBskyUnspeccedSearchPostsSkeleton: 'app.bsky.unspecced.searchPostsSkeleton',
-}
+};
