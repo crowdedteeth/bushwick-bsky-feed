@@ -1,7 +1,7 @@
 import express from 'express';
 import { AppContext } from './config';
 
-const makeRouter = (ctx: AppContext) => {
+export const makeRouter = (ctx: AppContext) => {
   const router = express.Router();
 
   router.get('/.well-known/did.json', (_req, res) => {
@@ -23,4 +23,3 @@ const makeRouter = (ctx: AppContext) => {
 
   return router;
 };
-export default makeRouter;

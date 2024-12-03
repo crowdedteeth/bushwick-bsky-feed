@@ -8,7 +8,7 @@ import { describeFeedGenerator } from './methods/describe_feed_generator';
 import { createDb, Database, migrateToLatest } from './db';
 import { FirehoseSubscription } from './subscription';
 import { AppContext, Config } from './config';
-import wellKnown from './well-known';
+import { makeRouter } from './well_known';
 
 export class FeedGenerator {
   public app: express.Application;
@@ -51,7 +51,7 @@ export class FeedGenerator {
     getFeedSkeleton(server, ctx);
     describeFeedGenerator(server, ctx);
     app.use(server.xrpc.router);
-    app.use(wellKnown(ctx));
+    app.use(makeRouter(ctx));
 
     return new FeedGenerator(app, db, firehose, cfg);
   }
