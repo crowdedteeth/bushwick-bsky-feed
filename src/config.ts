@@ -1,3 +1,4 @@
+import { ILogObj, Logger } from 'tslog';
 import { Database } from './db';
 import { DidResolver } from '@atproto/identity';
 
@@ -16,4 +17,5 @@ export type Config = {
   serviceDid: string;
   publisherDid: string;
   subscriptionReconnectDelay: number;
+  logger: Logger<ILogObj>;
 };
