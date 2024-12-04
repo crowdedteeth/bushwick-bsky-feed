@@ -1,8 +1,8 @@
 import { render } from 'preact';
 
 import bskyLogo from './assets/bsky.png';
-import firehose from './assets/firehose.svg';
-import { FeedIcon } from './components/feed_icon';
+import firehoseSvg from './assets/firehose.svg';
+import feedSvg from './assets/feed.svg';
 import { feeds as bskyFeeds } from '../../scripts/publishFeedGen';
 import './style.css';
 
@@ -49,9 +49,10 @@ export function App(props) {
         target="_blank"
         href={feed.link}>
         <div class="feed-info-container">
-          <div class="feed-icon-container">
-            <FeedIcon />
-          </div>
+          <img
+            class="feed-avatar"
+            src={feedSvg}
+          />
           <div class="feed-description">
             <h1 dangerouslySetInnerHTML={{ __html: feed.headline }}></h1>
             {feed.description.split('\n').map((line) => (
@@ -136,9 +137,8 @@ function Algorithm(props) {
       </p>
       <div class="algo-viz-container">
         <img
-          id="firehose"
-          src={firehose}
-          height="48"
+          class="algo-firehose"
+          src={firehoseSvg}
         />
         <div class="algo-linefeed">
           <code style={{ background: '#db7d09' }}>WIP</code>&nbsp;
@@ -171,9 +171,10 @@ function Algorithm(props) {
           class="algo-linefeed"
           style={{ visibility: 'hidden' }}
         />
-        <div class="feed-container">
-          <FeedIcon />
-        </div>
+        <img
+          class="algo-feed"
+          src={feedSvg}
+        />
       </div>
     </>
   );
