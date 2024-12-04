@@ -1,8 +1,13 @@
+import { Record as PostRecord } from './lexicon/types/app/bsky/feed/post';
 import {
   OutputSchema as RepoEvent,
   isCommit,
 } from './lexicon/types/com/atproto/sync/subscribeRepos';
-import { FirehoseSubscriptionBase, getOpsByType } from './util/subscription';
+import { CreateOp, FirehoseSubscriptionBase, getOpsByType } from './util/subscription';
+import * as brooklyn from './algos/brooklyn';
+import * as bushwick from './algos/bushwick';
+import { algos } from './algos';
+import { Post } from './db/schema';
 
 export class FirehoseSubscription extends FirehoseSubscriptionBase {
   async handleEvent(evt: RepoEvent) {
@@ -11,28 +16,31 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     const ops = await getOpsByType(evt);
 
     const postsToCreate = ops.posts.creates
-      .filter((create) => {
-        const include = create.record.facets?.some((facet) =>
-          facet.features.some((feature) =>
-            (feature.tag as string)?.toLowerCase().includes('bushwickfeed'),
-          ),
-        );
-        if (include) {
-          console.log('========================================');
-          console.log(create.record.text.replaceAll('\n', ''));
-          console.log('createdAt: ', create.record.createdAt);
-          console.log('========================================\n\n');
+      .reduce((acc, create) => {
+        const feeds = create.record.facets
+          ?.flatMap((facet) =>
+            facet.features
+              .filter((feature) => !!feature.tag)
+              .map((feature) => feature.tag as string),
+          )
+          .filter((tag) => !!tagsToFind[tag])
+          .map((tag) => tagsToFind[tag]);
+        if (feeds && feeds.length) {
+          acc.push({ create, feeds });
         }
-        return include;
-      })
-      .map((create) => {
-        return {
-          uri: create.uri,
-          cid: create.cid,
-          indexedAt: new Date().toISOString(),
-        };
-      });
-
+        return acc;
+      }, [] as { create: CreateOp<PostRecord>; feeds: (keyof typeof algos)[] }[])
+      .flatMap(({ create, feeds }) =>
+        feeds.map(
+          (feed) =>
+            ({
+              uri: create.uri,
+              cid: create.cid,
+              indexedAt: new Date().toISOString(),
+              feed,
+            } as Post),
+        ),
+      );
     if (postsToCreate.length > 0) {
       await this.db
         .insertInto('post')
@@ -42,3 +50,8 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     }
   }
 }
+
+const tagsToFind: Record<string, keyof typeof algos> = {
+  brooklynfeed: brooklyn.shortname,
+  bushwickfeed: bushwick.shortname,
+};

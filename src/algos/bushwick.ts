@@ -1,35 +1,36 @@
-import { QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
-import { AppContext } from '../config'
+import { QueryParams, OutputSchema } from '../lexicon/types/app/bsky/feed/getFeedSkeleton';
+import { AppContext } from '../config';
 
 // max 15 chars
-export const shortname = 'bushwick'
+export const shortname = 'bushwick';
 
-export const handler = async (ctx: AppContext, params: QueryParams) => {
+export const handler = async (ctx: AppContext, params: QueryParams): Promise<OutputSchema> => {
   let builder = ctx.db
     .selectFrom('post')
     .selectAll()
+    .where('post.feed', '==', shortname)
     .orderBy('indexedAt', 'desc')
     .orderBy('cid', 'desc')
-    .limit(params.limit)
+    .limit(params.limit);
 
   if (params.cursor) {
-    const timeStr = new Date(parseInt(params.cursor, 10)).toISOString()
-    builder = builder.where('post.indexedAt', '<', timeStr)
+    const timeStr = new Date(parseInt(params.cursor, 10)).toISOString();
+    builder = builder.where('post.indexedAt', '<', timeStr);
   }
-  const res = await builder.execute()
+  const res = await builder.execute();
 
   const feed = res.map((row) => ({
     post: row.uri,
-  }))
+  }));
 
-  let cursor: string | undefined
-  const last = res.at(-1)
+  let cursor: string | undefined;
+  const last = res.at(-1);
   if (last) {
-    cursor = new Date(last.indexedAt).getTime().toString(10)
+    cursor = new Date(last.indexedAt).getTime().toString(10);
   }
 
   return {
     cursor,
     feed,
-  }
-}
+  };
+};

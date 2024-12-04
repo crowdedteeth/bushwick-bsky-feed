@@ -1,7 +1,7 @@
 import { InvalidRequestError } from '@atproto/xrpc-server';
 import { Server } from '../lexicon';
 import { AppContext } from '../config';
-import algos from '../algos';
+import { algos } from '../algos';
 import { AtUri } from '@atproto/syntax';
 
 export function getFeedSkeleton(server: Server, ctx: AppContext) {
