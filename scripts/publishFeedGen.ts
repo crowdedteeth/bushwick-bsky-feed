@@ -24,7 +24,7 @@ const run = async () => {
   dotenv.config();
 
   const recordName = process.argv[2];
-  if (!recordName || Object.keys(feeds).includes(recordName)) {
+  if (!recordName || !Object.keys(feeds).includes(recordName)) {
     throw new Error(
       `Please provide the record name of the feed to publish: (${Object.keys(feeds).join(', ')})`,
     );
