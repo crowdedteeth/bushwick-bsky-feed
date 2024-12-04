@@ -3,6 +3,7 @@ import { render } from 'preact';
 import bskyLogo from './assets/bsky.png';
 import firehoseSvg from './assets/firehose.svg';
 import feedSvg from './assets/feed.svg';
+import githubSvg from './assets/github.svg';
 import { feeds as bskyFeeds } from '../../scripts/publishFeedGen';
 import './style.css';
 
@@ -122,19 +123,24 @@ function Algorithm(props) {
         reproduced diagrammatically below.
         <br />
         <br />
-        The source code for this feed is also available on GitHub!&nbsp;
-        <code>
-          <a
-            target="_blank"
-            href="https://github.com/crowdedteeth/bushwick-bsky-feed">
-            crowdedteeth-bsky-feeds
-          </a>
-        </code>
-        &nbsp;PRs are welcome :)
-        <br />
-        <br />
-        <br />
+        The source code for this feed is also available on{' '}
+        <a
+          target="_blank"
+          href="https://github.com/crowdedteeth/bushwick-bsky-feed">
+          GitHub
+        </a>
+        ! PRs are welcome :)
       </p>
+      <a
+        class="github-button"
+        target="_blank"
+        href="https://github.com/crowdedteeth/bushwick-bsky-feed">
+        <img
+          src={githubSvg}
+          height="16"
+        />
+        <span>crowdedteeth-bsky-feeds</span>
+      </a>
       <div class="algo-viz-container">
         <img
           class="algo-firehose"
