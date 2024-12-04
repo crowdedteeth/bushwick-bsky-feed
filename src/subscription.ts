@@ -23,24 +23,34 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
               .filter((feature) => !!feature.tag)
               .map((feature) => feature.tag as string),
           )
-          .filter((tag) => !!tagsToFind[tag])
-          .map((tag) => tagsToFind[tag]);
+          .filter((tag) => !!TAGS_TO_FIND[tag])
+          .map((tag) => TAGS_TO_FIND[tag]);
         if (feeds && feeds.length) {
           acc.push({ create, feeds });
         }
         return acc;
       }, [] as { create: CreateOp<PostRecord>; feeds: (keyof typeof algos)[] }[])
-      .flatMap(({ create, feeds }) =>
-        feeds.map(
+      .flatMap(({ create, feeds }) => {
+        let uri = create.uri;
+        let cid = create.cid;
+        const textWithoutTags = Object.keys(TAGS_TO_FIND)
+          .reduce((text, tag) => text.replaceAll(`#${tag}`, ''), create.record.text)
+          .trim();
+        if ((!textWithoutTags || GO_TO_PARENT_REGEX.test(textWithoutTags)) && create.record.reply) {
+          uri = create.record.reply.parent.uri;
+          cid = create.record.reply.parent.cid;
+          console.log(create.record.reply);
+        }
+        return feeds.map(
           (feed) =>
             ({
-              uri: create.uri,
-              cid: create.cid,
+              uri,
+              cid,
               indexedAt: new Date().toISOString(),
               feed,
             } as Post),
-        ),
-      );
+        );
+      });
     if (postsToCreate.length > 0) {
       await this.db
         .insertInto('post')
@@ -51,7 +61,9 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
   }
 }
 
-const tagsToFind: Record<string, keyof typeof algos> = {
+const GO_TO_PARENT_REGEX = /(https:\/\/)?bsky.app\/profile\//;
+
+const TAGS_TO_FIND: Record<string, keyof typeof algos> = {
   brooklynfeed: brooklyn.shortname,
   bushwickfeed: bushwick.shortname,
 };
