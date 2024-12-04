@@ -5,7 +5,7 @@ import { ids } from '../src/lexicon/lexicons';
 import * as brooklyn from '../src/algos/brooklyn';
 import * as bushwick from '../src/algos/bushwick';
 
-const feeds = {
+export const feeds = {
   [brooklyn.shortname]: {
     displayName: 'Brooklyn',
     avatar: '',

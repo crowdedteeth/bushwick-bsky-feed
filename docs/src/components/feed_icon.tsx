@@ -1,4 +1,3 @@
-/** */
 export function FeedIcon() {
   return (
     <svg
