@@ -12,7 +12,7 @@ const run = async () => {
     service: 'https://public.api.bsky.app/',
   });
 
-  let postsToDelete: string[] = [];
+  const postsToDelete: string[] = [];
   let cursor: string | undefined = undefined;
   let batch: Post[] | undefined = undefined;
   while (!batch || batch.length) {
