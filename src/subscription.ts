@@ -39,7 +39,6 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         if ((!textWithoutTags || GO_TO_PARENT_REGEX.test(textWithoutTags)) && create.record.reply) {
           uri = create.record.reply.parent.uri;
           cid = create.record.reply.parent.cid;
-          console.log(create.record.reply);
         }
         return feeds.map(
           (feed) =>
