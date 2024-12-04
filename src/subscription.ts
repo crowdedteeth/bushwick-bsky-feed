@@ -33,10 +33,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
       .flatMap(({ create, feeds }) => {
         let uri = create.uri;
         let cid = create.cid;
-        const textWithoutTags = Object.keys(TAGS_TO_FIND)
-          .reduce((text, tag) => text.replaceAll(`#${tag}`, ''), create.record.text)
-          .trim();
-        if ((!textWithoutTags || GO_TO_PARENT_REGEX.test(textWithoutTags)) && create.record.reply) {
+        if (shouldAddPostParent(create.record)) {
           uri = create.record.reply.parent.uri;
           cid = create.record.reply.parent.cid;
         }
@@ -58,6 +55,15 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .execute();
     }
   }
+}
+
+export function shouldAddPostParent(
+  post: PostRecord,
+): post is Required<Pick<PostRecord, 'reply'>> & PostRecord {
+  const textWithoutTags = Object.keys(TAGS_TO_FIND)
+    .reduce((text, tag) => text.replaceAll(`#${tag}`, ''), post.text)
+    .trim();
+  return !!((!textWithoutTags || GO_TO_PARENT_REGEX.test(textWithoutTags)) && post.reply);
 }
 
 const GO_TO_PARENT_REGEX = /(https:\/\/)?bsky.app\/profile\//;
