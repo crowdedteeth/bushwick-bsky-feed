@@ -82,7 +82,7 @@ function Philosophy(props) {
         This feed is curated with an eye toward community building and real-world engagement. For
         example, posts which promote local events, community-owned businesses, or {feed.name}
         -related news are of principal interest. Secondarily, we aim to cultivate conversation among
-        members of our community by highlighting "hot"/"trending" posts pertaining to any aspect of
+        members of our community by highlighting "hot"/"trending" posts pertaining to any aspect of{' '}
         {feed.name}'s diverse culture.
         <br />
         <br />
