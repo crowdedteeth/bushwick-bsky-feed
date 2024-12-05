@@ -15,7 +15,7 @@ const feeds: Record<keyof typeof bskyFeeds, Record<string, string>> = {
     description: 'Curated feed for Brooklyn news, events, culture & more.\n#brooklynfeed',
     name: 'Brooklyn',
     tag: '#brooklynfeed',
-    link: 'https://bsky.app/profile/crowdedteeth.bsky.social/feed/bushwick',
+    link: 'https://bsky.app/profile/crowdedteeth.bsky.social/feed/brooklyn',
   },
   bushwick: {
     headline: '🌆⋆.˚𖤓˚⟡&nbsp;&nbsp;&nbsp;Bushwick, Brooklyn.&nbsp;&nbsp;&nbsp;⟡˚⏾˚.⋆🌃',
@@ -23,7 +23,7 @@ const feeds: Record<keyof typeof bskyFeeds, Record<string, string>> = {
     name: 'Bushwick',
     tag: '#bushwickfeed',
     fixtureExample: 'Bushwick Daily',
-    link: 'https://bsky.app/profile/crowdedteeth.bsky.social/feed/brooklyn',
+    link: 'https://bsky.app/profile/crowdedteeth.bsky.social/feed/bushwick',
   },
 };
 
