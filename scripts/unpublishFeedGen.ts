@@ -20,13 +20,26 @@ const run = async () => {
   const agent = new AtpAgent({ service });
   await agent.login({ identifier: handle, password });
 
-  await agent.api.com.atproto.repo.deleteRecord({
-    repo: agent.session?.did ?? '',
+  let response = await agent.api.com.atproto.repo.listRecords({
+    repo: agent.session!.did,
     collection: ids.AppBskyFeedGenerator,
-    rkey: recordName,
   });
+  console.log(response.data);
 
-  console.log('All done 🎉');
+  response = await agent.api.com.atproto.repo.applyWrites({
+    repo: agent.session?.did ?? '',
+    writes: [{
+      collection: ids.AppBskyFeedGenerator,
+      rkey: recordName,
+    }],
+  });
+  console.log(response);
+  
+  response = await agent.api.com.atproto.repo.listRecords({
+    repo: agent.session!.did,
+    collection: ids.AppBskyFeedGenerator,
+  });
+  console.log(response.data);
 };
 
 run();
